@@ -1,48 +1,91 @@
-Projeto Final - Bike Sharing (Databricks)
-Este repositório contém o projeto de análise de dados do sistema de partilha de bicicletas (Bike Sharing), desenvolvido no ambiente Databricks utilizando PySpark.
+# 🚲 Projeto Final - Bike Sharing (Databricks)
 
-📋 Sobre o Projeto
-O objetivo principal deste projeto é explorar e analisar dados históricos de aluguel de bicicletas, identificando padrões de comportamento baseados em condições sazonais e ambientais.
+Este repositório apresenta um projeto de análise de dados baseado em um sistema de compartilhamento de bicicletas (*Bike Sharing*), desenvolvido no ambiente **Databricks** utilizando **PySpark**.
 
-O estudo foca-se na relação entre o volume de alugueres e variáveis como:
+---
 
-Condições climáticas (weathersit).
+## 📋 Sobre o Projeto
 
-Dias úteis vs. fins de semana (workingday).
+O principal objetivo deste projeto é explorar e analisar dados históricos de aluguel de bicicletas, com o intuito de identificar padrões de comportamento dos usuários.
 
-Variações sazonais e horárias.
+A análise busca compreender como diferentes fatores influenciam a demanda por bicicletas, com foco em:
 
-🛠️ Tecnologias Utilizadas
-Databricks: Plataforma de análise de dados.
+- 🌦️ Condições climáticas (`weathersit`)
+- 🗓️ Dias úteis vs. finais de semana/feriados (`workingday`)
+- 🍂 Variações sazonais
+- ⏰ Padrões ao longo do dia (análise por hora)
 
-Apache Spark (PySpark): Processamento distribuído de dados.
+---
 
-Spark SQL: Manipulação e consulta de dados estruturados.
+## 🛠️ Tecnologias Utilizadas
 
-Python: Linguagem principal para lógica de análise.
+- **Databricks** → Plataforma de processamento e análise de dados  
+- **Apache Spark (PySpark)** → Processamento distribuído de grandes volumes de dados  
+- **Spark SQL** → Consulta e manipulação de dados estruturados  
+- **Python** → Linguagem principal para análise e transformação de dados  
 
-📊 Estrutura do Notebook
-O projeto segue as seguintes etapas:
+---
 
-Exploração de Datasets: Localização e leitura dos dados originais no DBFS (/databricks-datasets/bikeSharing/).
+## 📊 Estrutura do Notebook
 
-Análise de Metadados: Consulta aos ficheiros README.md do dataset para entender os dicionários de variáveis.
+O projeto foi desenvolvido seguindo as etapas abaixo:
 
-Processamento de Dados:
+### 🔎 1. Exploração de Datasets
+- Localização dos dados no diretório padrão do Databricks:
+/databricks-datasets/bikeSharing/
 
-Leitura de ficheiros CSV (day.csv e hour.csv) com inferência de schema.
+- Identificação dos arquivos principais:
+- `day.csv` (dados agregados por dia)
+- `hour.csv` (dados por hora)
 
-Criação de tabelas temporárias para consultas SQL.
+---
 
-Agregação e Insights: Execução de queries SQL para calcular métricas como o total de alugueres por tipo de clima e dia da semana.
+### 📖 2. Análise de Metadados
+- Leitura do arquivo `README.md`
+- Compreensão do dicionário de dados e contexto do dataset
 
-🚀 Como Visualizar
-Como o arquivo está no formato .ipynb, pode visualizá-lo diretamente aqui no GitHub. Se desejar executar o código:
+---
 
-Importe o arquivo para o seu Workspace no Databricks.
+### ⚙️ 3. Processamento de Dados
+- Leitura dos arquivos CSV com:
+- Inferência de schema
+- Cabeçalho habilitado
+- Criação de **DataFrames** no PySpark
+- Criação de **Temp Views** para consultas em SQL
 
-Certifique-se de que tens um cluster ativo.
+---
 
-Executa as células para processar os dados em tempo real.
+### 📈 4. Agregações e Insights
+- Construção de tabelas de frequência
+- Análises por:
+- Ano e estação
+- Hora do dia
+- Condições climáticas
+- Tipo de dia (útil ou não)
+- Uso de **Spark SQL** para geração de métricas como:
+- Total de alugueis
+- Comparações entre cenários
 
-Dica de Personalização:
+---
+
+## 🚀 Como Executar o Projeto
+
+Para executar este projeto no Databricks:
+
+1. Importe o arquivo `.ipynb` para o seu Workspace
+2. Inicie um cluster no Databricks
+3. Execute as células do notebook em sequência
+4. Os dados serão carregados diretamente do diretório padrão (`DBFS`)
+
+---
+
+## 📌 Considerações Finais
+
+Este projeto demonstra, de forma prática, o uso do **Databricks + PySpark** para análise exploratória de dados, destacando boas práticas como:
+
+- Organização do fluxo analítico  
+- Uso de SQL para exploração  
+- Transformação de dados em escala  
+
+---
+
